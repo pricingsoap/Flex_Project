@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="6d25a6d6-170a-40f7-a27e-b56bcebacd38" isOneWay="false" action="http://towerswatson.com/rto/dpo/services/2010/01/DpoServiceContract/GetPofWithId" name="GetPofWithId" bindingOperationName="GetPofWithId" type="Request-Response" outputName="PofResponse2" inputName="PofRequestUsingMasterSet" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="6d25a6d6-170a-40f7-a27e-b56bcebacd38fileName">GetPofWithId</con:setting>
+  </con:settings>
+  <con:call id="03b6afd3-433a-4906-94aa-eb359dbfa005" name="GetPofWithId Request" useWsAddressing="true">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>http://aa-ap891v:5021/DpoService.svc</con:endpoint>
+    <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ns="http://towerswatson.com/rto/dpo/services/2010/01" xmlns:ns1="http://towerswatson.com/rto/smf/types/2010/01">
+   <soap:Header/>
+   <soap:Body>
+      <ns:PofRequest>
+         <!--Optional:-->
+         <ns:PofrCollection>
+            <!--Zero or more repetitions:-->
+            <ns1:PofrInformationDataContract>
+               <ns1:Pofr><![CDATA[<?xml version="1.0"?>
+<root>
+	<Quote>
+	     <RRERD1_CPD1_P1_ProductCode1 value="PRD_UK_001"/>
+	     <RRERD1_CPD1_P2_ProductCode2 value=""/>
+	     <RRERD1_CPD1_P3_ProductCode3 value="PRD_UK_003"/>
+	     <RRERD1_CPD1_P4_ProductCode4 value=""/>
+	     <RRERD1_CPD1_P5_ProductCode5 value=""/>
+	     <RRERD1_CPD1_P6_ProductCode6 value=""/>
+	     <RRERD1_CPD1_P7_ProductCode7 value="PRD_UK_0018"/>
+	     <RRERD1_CoveredPersons1 value="1"/>
+	     <RRERD1_CPD1_PL1_P1_DateOfBirth1 value="1973-09-07T00:00:00"/>
+		<RRERD1_PolicyStartDateTime1 value="2000-09-07T00:00:00"/>
+		<EXPERIAN_FSS_SCORE value="1"/>
+	     <MTA_PRODUCT_CHANGE value="N"/>
+	     <NO_CALLOUTS_1_YR value="0"/>
+		<NO_CALLOUTS_2_YR value="1"/>
+		<RETENTION_AGENT_DISC_1_YR value="FALSE"/>
+          <RETENTION_AGENT_DISC_2_YR value="FALSE"/>
+          <RETENTION_AGENT_DISC_3_YR value="FALSE"/>
+		<RRERD1_CPD1_RecordedPaymentType1 value="RDD"/>
+		<RRERD1_MembershipTenure1 value="2"/>
+		<RRERD1_SourceGroup1 value="1"/>
+		<RRERD1_RandomNumber1 value="967"/>
+		<RRERD1_CPD1_PartialFreeMembershipFlag1 value="true"/>
+		<RRERD1_MembershipNumber1 value="6356010000005367"/>
+		<RRERD1_CPD1_RecordedPaymentMeans1 value="CC"/>
+		<RRERD1_InScopeFlexFlag1 value="true"/>
+		<RRERD1_SourceCode1 value="TLBM1"/>	
+		<RRERD1_Postcode1 value="IM11JA"/>
+		<InvitedComplimentaryProducts value=""/>
+		<FreeJuniorAssociateCount value="0"/>
+		<BRC_CLAIMS_1_YR value="4"/>
+		<BRC_CLAIMS_2_YR value="3"/>
+		<BRC_CLAIMS_3_YR value="4"/>
+		<TOTAL_INVITED_PREMIUM_1_YR value="307.52" />
+		<TOTAL_INVITED_PREMIUM_2_YR value="571.64" />
+		<TOTAL_INVITED_PREMIUM_3_YR value="136.4" />
+		<TOTAL_RENEWAL_PREMIUM_1_YR value="347.2" />
+		<TOTAL_RENEWAL_PREMIUM_2_YR value="597.68" />
+		<TOTAL_RENEWAL_PREMIUM_3_YR value="314.96" />
+		<NO_CALLOUTS_3_YR value="2"/>
+		<INSURANCE_HISTORY value="N"/>
+		<MOTOR_HISTORY value="N"/>
+		<HOME_HISTORY value="N"/>
+		<LIVE_PRODUCT_COUNT value="1"/>
+		<MEMBERSHIP_HELD_5_YR value="5"/>
+		<UNSUBSCRIBED_EMAIL_1_YR value="TRUE"/>
+	</Quote>
+</root>]]]]>><![CDATA[</ns1:Pofr>
+            </ns1:PofrInformationDataContract>
+         </ns:PofrCollection>
+         <!--Optional:-->
+      </ns:PofRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://towerswatson.com/rto/dpo/services/2010/01/DpoServiceContract/GetPofWithId"/>
+    <con:wsrmConfig version="1.2"/>
+  </con:call>
+</con:operation>

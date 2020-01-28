@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="2c94abec-894f-48c5-aae1-198b6423b9d5" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Flex_Risk_Adj" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="2c94abec-894f-48c5-aae1-198b6423b9d5fileName">Flex_Risk_Adj</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="Initialise_Properties" id="57774cf9-b3ae-40bb-bee0-37a78803ef00">
+    <con:settings/>
+    <con:config>
+      <script>// initialise values
+testRunner.testCase.setPropertyValue( 'TotalOfValuesChecked',  '0')
+testRunner.testCase.setPropertyValue( 'NumOfValuesFailed',  '0')
+testRunner.testCase.setPropertyValue( 'NumOfIterations',  '0')
+
+//Sets dates for testing
+
+//Sep Prices
+testRunner.testCase.setPropertyValue('RequestDateTime','2020-02-01T00:00:00')
+
+
+//Creates output file
+now=new java.text.SimpleDateFormat("yyyyMMdd'T'HHmmss").format(new Date())
+
+//Path for Flex 6A
+testRunner.testCase.setPropertyValue( 'File',("N:/Systems_development/RIO/Road Renewals/Soap UI/Test Results/TIA_Flex_6A/FlexResults" + now + ".txt"));
+
+testRunner.testCase.setPropertyValue( 'FileFailed',("N:/Systems_development/RIO/Road Renewals/Soap UI/Test Results/TIA_Flex_6A/FlexResultsFailed" + now + ".txt"));
+
+//path for Flex 7
+//
+//testRunner.testCase.setPropertyValue( 'File',("N:/Systems_development/RIO/Road Renewals/Soap UI/Test Results/TIA_Flex_7/FlexResults" + now + ".txt"));
+//
+//testRunner.testCase.setPropertyValue( 'FileFailed',("N:/Systems_development/RIO/Road Renewals/Soap UI/Test Results/TIA_Flex_7/FlexResultsFailed" + now + ".txt"));
+
+FileOutputStream out = new FileOutputStream(context.expand( '${#TestCase#File}' ));
+out.write();
+out.close();
+
+FileOutputStream out1 = new FileOutputStream(context.expand( '${#TestCase#FileFailed}' ));
+out1.write();
+out1.close();</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="Flex_Adj_Factors" id="0b136665-5c6b-4d2d-bda9-979e13a09669">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Excel">
+        <con:configuration>
+          <file>N:/Systems_development/RIO/Road Renewals/SOAP pricing/Flex/Flex6a/Flex6a_InputSheet.xlsx</file>
+          <worksheet>InputforSOAP</worksheet>
+          <cell>A2</cell>
+          <ignoreEmpty>true</ignoreEmpty>
+          <evaluateFormulas>false</evaluateFormulas>
+        </con:configuration>
+      </con:dataSource>
+      <con:property>ID</con:property>
+      <con:property>PRODUCT_TYPE</con:property>
+      <con:property>COVER</con:property>
+      <con:property>RO</con:property>
+      <con:property>RE</con:property>
+      <con:property>SM</con:property>
+      <con:property>HS</con:property>
+      <con:property>PAYMENT_TYPE</con:property>
+      <con:property>CHANNEL_GROUP</con:property>
+      <con:property>CHANNEL_VAL</con:property>
+      <con:property>DATE_OF_BIRTH</con:property>
+      <con:property>POLICY_START_DATE</con:property>
+      <con:property>AGE_VAL</con:property>
+      <con:property>TENURE_TYPE</con:property>
+      <con:property>MRT_3YR</con:property>
+      <con:property>PACKAGE_VAL</con:property>
+      <con:property>MRT_VAL</con:property>
+      <con:property>MTA_VAL</con:property>
+      <con:property>FSS_VAL</con:property>
+      <con:property>CALL1_VAL</con:property>
+      <con:property>CALL2_VAL</con:property>
+      <con:property>VEHICLE_VAL</con:property>
+      <con:property>COMP_VAL</con:property>
+      <con:property>BRC_VAL</con:property>
+      <con:property>AGE_ADJ_FAACFM_VAL</con:property>
+      <con:property>TENURE_ADJ_FAACFM_VAL</con:property>
+      <con:property>PAYMENT_ADJ_FAACFM_VAL</con:property>
+      <con:property>MEB_ADJ_FAACFM_VAL</con:property>
+      <con:property>PACKAGE_ADJ_FAACFM_VAL</con:property>
+      <con:property>MRT_ADJ_FAACFM_VAL</con:property>
+      <con:property>MRT_3YR_ADJ_FAACFM_VAL</con:property>
+      <con:property>MTA_ADJ_FAACFM_VAL</con:property>
+      <con:property>FSS_ADJ_FAACFM_VAL</con:property>
+      <con:property>CallOut1_ADJ_FAACFMOR_VAL</con:property>
+      <con:property>CallOut2_ADJ_FAACFMOR_VAL</con:property>
+      <con:property>R_VEHICLE_ADJ_FAACFMOR_VAL</con:property>
+      <con:property>R_COMP_ADJ_FAACFMOR_VAL</con:property>
+      <con:property>R_BRC_ADJ_FAACFMOR_VAL</con:property>
+      <con:property>CHANNEL_ADJ_FAACFMOR_VAL</con:property>
+      <con:property>FLEX_TOTAL</con:property>
+      <con:property>RANDOM_NUMBER</con:property>
+      <con:property>PRICE_TEST_VALUE</con:property>
+      <con:property>FLEX_FLAG</con:property>
+      <con:property>FINAL_FLEX_VAL</con:property>
+      <con:property>TENURE_BAND</con:property>
+      <con:property>CALLOUT2_BAND</con:property>
+      <con:property>CHANNELBANDCALC</con:property>
+      <con:property>RANDOMNO PERCENT</con:property>
+      <con:property>STRATEGY_BAND</con:property>
+      <con:property>ADJ_FAACFMOR_LOWER_LIMIT</con:property>
+      <con:property>ADJ_FAACFMOR_UPPER_LIMIT</con:property>
+      <con:property>Flex_Value</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Groovy Script" id="30079225-a8eb-4531-be70-b5be6e2d6867" disabled="true">
+    <con:settings/>
+    <con:config>
+      <script>def project = testRunner.testCase.testSuite.project;
+log.info ("----------Started------------")
+testRunner.runTestStep( project.testSuites['Flex_Risk_6'].testCases['Flex_Risk_Adj'].testSteps['Product_Code'] )
+testRunner.runTestStep( project.testSuites['Flex_Risk_6'].testCases['Flex_Risk_Adj'].testSteps['Retention_Agent_Discount'] )
+testRunner.runTestStep( project.testSuites['Flex_Risk_6'].testCases['Flex_Risk_Adj'].testSteps['DateSetup'] )
+testRunner.runTestStep( project.testSuites['Flex_Risk_6'].testCases['Flex_Risk_Adj'].testSteps['CoveredPersons_Value'] )
+testRunner.runTestStep( project.testSuites['Flex_Risk_6'].testCases['Flex_Risk_Adj'].testSteps['RetrieveFlexFactor'] )
+testRunner.runTestStep( project.testSuites['Flex_Risk_6'].testCases['Flex_Risk_Adj'].testSteps['Validate'] )
+log.info ("----------Completed------------")</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Product_Code" id="8a056a8b-7526-4431-b9a7-42261cb99aac">
+    <con:settings/>
+    <con:config>
+      <script>def productType = context.expand( '${Flex_Adj_Factors#PRODUCT_TYPE}' )
+log.info productType
+def cover = context.expand( '${Flex_Adj_Factors#COVER}' )
+
+def BRC_VAL = context.expand( '${Flex_Adj_Factors#BRC_VAL}' )
+def productType1
+def productType2
+def productType3
+def productType4
+def productType5
+def productType6
+def productType7
+
+String delimiters = "\\,|\\&amp;";
+String[] prodArr = productType.split(delimiters);
+
+
+if(prodArr.length > 0)
+{
+	
+	for (prod in prodArr)
+	{
+
+		
+		if(prod.trim().equals("Roadside"))
+		{
+			if(cover.equals("V1"))
+			{
+
+				productType2 = "PRD_UK_0002"
+              
+             
+				             
+			}
+			else
+			{
+			    productType1 = "PRD_UK_0001"
+			}
+		}
+		if(prod.trim().equals("Home Start"))
+		{
+			 productType3 = "PRD_UK_0003"
+		}
+		if(prod.trim().equals("Relay"))
+		{
+			productType4 = "PRD_UK_0004"
+		}
+		if(prod.trim().equals("Stay Mobile"))
+		{
+			productType5 = "PRD_UK_0005"
+		}
+
+		if (BRC_VAL == "Y")
+		
+		{
+            productType6 = "PRD_UK_0009"
+            productType7 = "PRD_UK_0018"
+			
+		}
+		
+		
+	}
+	
+}
+
+testRunner.testCase.setPropertyValue( "productType1",  productType1)
+testRunner.testCase.setPropertyValue( "productType2",  productType2)
+testRunner.testCase.setPropertyValue( "productType3",  productType3)
+testRunner.testCase.setPropertyValue( "productType4",  productType4)
+testRunner.testCase.setPropertyValue( "productType5",  productType5)
+testRunner.testCase.setPropertyValue( "productType5",  productType5)
+testRunner.testCase.setPropertyValue( "productType7",  productType7)
+log.info(productType1)
+log.info(productType2)
+log.info(productType3)
+log.info(productType4)
+log.info(productType5)
+log.info(productType6)
+log.info(productType7)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Retention_Agent_Discount" id="4753153a-6228-4260-84bb-53894cc390f3">
+    <con:settings/>
+    <con:config>
+      <script>def  Mrt_3Yrs = context.expand( '${Flex_Adj_Factors#MRT_3YR}' )
+log.info( Mrt_3Yrs)
+def Agd1 
+def Agd2 
+def Agd3 
+def pAYMENT_TYPE = context.expand( '${Flex_Adj_Factors#PAYMENT_TYPE}' )
+def payment_means1
+if (pAYMENT_TYPE == "CMM")
+{
+
+ pAYMENT_TYPE = "CMM"
+ payment_means1 = ""
+	
+}
+else if(pAYMENT_TYPE == "SAP")
+{
+
+  pAYMENT_TYPE = "SAP"
+  payment_means1 = ""
+	
+}
+
+else if(pAYMENT_TYPE == "QTR")
+{
+
+  pAYMENT_TYPE = "QTR"
+  payment_means1 = ""
+ 	
+}
+else if(pAYMENT_TYPE == "RCC")
+{
+
+ pAYMENT_TYPE = "RAP"
+ payment_means1 = "CC"
+	
+}
+else if(pAYMENT_TYPE == "RDD")
+
+{
+   pAYMENT_TYPE = "RAP"
+   payment_means1 = "DD"
+   
+}
+else if(pAYMENT_TYPE == "ROT")
+
+{
+   pAYMENT_TYPE = "SAP"
+   payment_means1 = ""
+   
+}
+else
+{
+
+  pAYMENT_TYPE = context.expand( '${Flex_Adj_Factors#PAYMENT_TYPE}' )
+	
+}
+testRunner.testCase.setPropertyValue( "pAYMENT_TYPE",  pAYMENT_TYPE)
+log.info("pAYMENT_TYPE":pAYMENT_TYPE)
+testRunner.testCase.setPropertyValue( "payment_means1",  payment_means1)
+log.info("payment_means1":payment_means1)
+
+
+if(Mrt_3Yrs.length()>0)
+{
+     if(Mrt_3Yrs[0].equals("Y"))
+
+     {
+
+      Agd1 = "TRUE"
+     	
+     }
+    
+      else
+     {
+   
+       Agd1 = "FALSE"	
+	
+     }
+
+     if(Mrt_3Yrs[1].equals("Y"))
+
+      {
+
+      Agd2 = "TRUE"
+     	
+     }
+    
+   else
+     {
+   
+     Agd2 = "FALSE"	
+	
+     }
+
+ if(Mrt_3Yrs[2].equals("Y"))
+
+      {
+
+      Agd3 = "TRUE"
+     	
+     }
+    
+   else
+     {
+   
+     Agd3 = "FALSE"	
+	
+     }
+}	
+
+testRunner.testCase.setPropertyValue( "Agd1",  Agd1)
+log.info(Agd1)
+testRunner.testCase.setPropertyValue( "Agd2",  Agd2)
+log.info(Agd2)
+testRunner.testCase.setPropertyValue( "Agd3",  Agd3)
+log.info(Agd3)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="DateSetup" id="9c312a77-d6b1-4986-a79d-e606176bf2a1">
+    <con:settings/>
+    <con:config>
+      <script>def db = context.expand( '${Flex_Adj_Factors#DATE_OF_BIRTH}' )
+def pd = context.expand( '${Flex_Adj_Factors#POLICY_START_DATE}' )
+def flex_flag = context.expand( '${Flex_Adj_Factors#FLEX_FLAG}' )
+
+
+def DateofBirth1 
+def policyStDate1
+
+testRunner.testCase.setPropertyValue( "DateofBirth1", DateofBirth1= db+ "T00:00:00" )
+testRunner.testCase.setPropertyValue( "policyStDate1", policyStDate1= pd+ "T00:00:00" )
+testRunner.testCase.setPropertyValue( "flexflag",flex_flag )
+log.info(DateofBirth1)
+log.info(policyStDate1)
+log.info(flex_flag)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="CoveredPersons_Value" id="c33b37aa-adb4-4a0f-8be8-aacea1780e43">
+    <con:settings/>
+    <con:config>
+      <script>def cover = context.expand( '${Flex_Adj_Factors#COVER}' )
+def Cover1
+
+
+if(cover.equals("V1"))
+
+{
+	
+  Cover1 ="0"
+          
+ }
+if(cover.equals("P1"))
+{
+	
+	 Cover1 = "1"
+}
+if(cover.equals("P2"))
+{
+	 Cover1 = "2"
+}
+if(cover.equals("P3"))
+{
+	 Cover1 = "3"
+}
+if(cover.equals("P4"))
+{
+	 Cover1 = "4"
+}
+
+testRunner.testCase.setPropertyValue( "Cover1",  Cover1)
+log.info(Cover1)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="RetrieveFlexFactor" id="c74c1e69-0cf5-4b70-b32c-989bda45ba88">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>DefaultDpoServiceEndpoint</con:interface>
+      <con:operation>GetPof</con:operation>
+      <con:request name="RetrieveFlexFactor" id="fd1eec13-4a24-4a2c-9655-697c93f33ba7">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>http://aa-ap891v:5021/DpoService.svc</con:endpoint>
+        <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ns="http://towerswatson.com/rto/dpo/services/2010/01" xmlns:ns1="http://towerswatson.com/rto/smf/types/2010/01">
+   <soap:Header/>
+   <soap:Body>
+      <ns:PofRequest>
+         <!--Optional:-->
+         <ns:PofrCollection>
+            <!--Zero or more repetitions:-->
+            <ns1:PofrInformationDataContract>
+               <ns1:Pofr><![CDATA[<?xml version="1.0"?>
+<root>
+	<Quote>
+	     <RRERD1_CPD1_P1_ProductCode1 value="${#TestCase#productType1}"/>
+	     <RRERD1_CPD1_P2_ProductCode1 value="${#TestCase#productType2}"/>
+	     <RRERD1_CPD1_P3_ProductCode1 value="${#TestCase#productType3}"/>
+	     <RRERD1_CPD1_P4_ProductCode1 value="${#TestCase#productType4}"/>
+	     <RRERD1_CPD1_P5_ProductCode1 value="${#TestCase#productType5}"/>
+	     <RRERD1_CPD1_P6_ProductCode1 value="${#TestCase#productType6}"/>
+	     <RRERD1_CPD1_P7_ProductCode1 value="${#TestCase#productType7}"/>
+	     <RRERD1_CoveredPersons1 value="${#TestCase#Cover1}"/>
+	     <RRERD1_CPD1_PL1_P1_DateOfBirth1 value="${#TestCase#DateofBirth1}"/>
+		<RRERD1_PolicyStartDateTime1 value="${#TestCase#policyStDate1}"/>
+		<EXPERIAN_FSS_SCORE value="${Flex_Adj_Factors#FSS_VAL}"/>
+	     <MTA_PRODUCT_CHANGE value="${Flex_Adj_Factors#MTA_VAL}"/>
+	     <NO_CALLOUTS_1_YR value="${Flex_Adj_Factors#CALL1_VAL}"/>
+		<NO_CALLOUTS_2_YR value="${Flex_Adj_Factors#CALL2_VAL}"/>
+		<RETENTION_AGENT_DISC_1_YR value="${#TestCase#Agd1}"/>
+          <RETENTION_AGENT_DISC_2_YR value="${#TestCase#Agd2}"/>
+          <RETENTION_AGENT_DISC_3_YR value="${#TestCase#Agd3}"/>
+		<RRERD1_CPD1_RecordedPaymentType1 value="${#TestCase#pAYMENT_TYPE}"/>
+		<RRERD1_MembershipTenure1 value="${Flex_Adj_Factors#TENURE_TYPE}"/>
+		<RRERD1_SourceGroup1 value="${Flex_Adj_Factors#CHANNEL_GROUP}"/>
+		<RRERD1_RandomNumber1 value="${Flex_Adj_Factors#RANDOM_NUMBER}"/>
+		<RRERD1_CPD1_PartialFreeMembershipFlag1 value="true"/>
+		<RRERD1_MembershipNumber1 value="6356010000005367"/>
+		<RRERD1_CPD1_RecordedPaymentMeans1 value="${#TestCase#payment_means1}"/>
+		<RRERD1_InScopeFlexFlag1 value="${#TestCase#flexflag}"/>
+		<RRERD1_SourceCode1 value="${Flex_Adj_Factors#CHANNEL_VAL}"/>
+		<RRERD1_CPD1_VDL1_VD1_VehicleAge1 value="${Flex_Adj_Factors#VEHICLE_VAL}"/>	
+		<RRERD1_Postcode1 value="RG21 7UG"/>
+		<InvitedComplimentaryProducts value=""/>
+		<FreeJuniorAssociateCount value="0"/>
+		<BRC_CLAIMS_1_YR value="4"/>
+		<BRC_CLAIMS_2_YR value="3"/>
+		<BRC_CLAIMS_3_YR value="4"/>
+		<TOTAL_INVITED_PREMIUM_1_YR value="307.52" />
+		<TOTAL_INVITED_PREMIUM_2_YR value="571.64" />
+		<TOTAL_INVITED_PREMIUM_3_YR value="136.4" />
+		<TOTAL_RENEWAL_PREMIUM_1_YR value="347.2" />
+		<TOTAL_RENEWAL_PREMIUM_2_YR value="597.68" />
+		<TOTAL_RENEWAL_PREMIUM_3_YR value="314.96" />
+		<NO_CALLOUTS_3_YR value="2"/>
+		<INSURANCE_HISTORY value="N"/>
+		<MOTOR_HISTORY value="N"/>
+		<HOME_HISTORY value="N"/>
+		<LIVE_PRODUCT_COUNT value="1"/>
+		<MEMBERSHIP_HELD_5_YR value="5"/>
+		<UNSUBSCRIBED_EMAIL_1_YR value="TRUE"/>
+	</Quote>
+</root>]]]]>><![CDATA[</ns1:Pofr>
+            </ns1:PofrInformationDataContract>
+         </ns:PofrCollection>
+         <!--Optional:-->
+      </ns:PofRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="ebcaa18c-392e-47c7-a15a-ed5eb79dac7a"/>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Validate" id="65d0c808-67b0-436a-b385-4becd980d596">
+    <con:settings/>
+    <con:config>
+      <script>//imports
+import java.text.DecimalFormat;
+
+int numOfIterations = Integer.parseInt(context.expand( '${#TestCase#NumOfIterations}' ))
+numOfIterations++
+testRunner.testCase.setPropertyValue( 'NumOfIterations',  new Integer(numOfIterations).toString())
+
+def cover2 = context.expand( '${Flex_Adj_Factors#COVER}' )
+
+// Flex Values 
+def productType = context.expand( '${Flex_Adj_Factors#PRODUCT_TYPE}' )
+func_Flex(productType)
+
+def func_Flex(product)
+{
+        	String R1,R2
+          String R_FinalFlexVal,R_FinalStrategyVal
+          String FlexVal,StrategyVal
+          int index,index1,index2,index3
+          int Flexindex,Strategyindex
+          int FinalFlex_Len
+          def id = context.expand( '${Flex_Adj_Factors#ID}' )
+    	     def  R = context.expand( '${RetrieveFlexFactor#Response#declare namespace ns1=\'http://towerswatson.com/rto/dpo/services/2010/01\'; declare namespace a=\'http://towerswatson.com/rto/smf/types/2010/01\'; //ns1:PofResponse[1]/ns1:PofCollection[1]/a:PofInformationDataContract[1]/a:Pof[1]}')
+    	     
+        
+          Float Final_Flex =Float.parseFloat(context.expand( '${Flex_Adj_Factors#Flex_Value}' ))                //this is for flex 6
+//          Float Final_Flex =Float.parseFloat(context.expand( '${Flex_Adj_Factors#Flex_Adjustment}' ))                //this is for flex 7
+          log.info(" Final_Flex: " +  Final_Flex)   
+          String Final_Flex_S = Final_Flex.toString()
+          log.info("Final_Flex_S: " + Final_Flex_S)     
+          log.info(Final_Flex_S.length())
+          def flex_flag = context.expand( '${Flex_Adj_Factors#FLEX_FLAG}' )
+          
+		//Flex factor from the response
+		
+      	R1 = R.toString()
+      	log.info R1
+    	   	index = R1.indexOf("FlexFactor value")
+    	   	log.info "FlexFactor Value Index " + index
+		Flexindex = index + 18
+		FlexVal = R1.substring(Flexindex)
+		index2 = FlexVal. indexOf(" />")
+		R_FinalFlexVal = FlexVal.substring(0,index2-1)
+		Float R_R_FinalFlexVal = Float.parseFloat(R_FinalFlexVal)
+		Float Final_Flex_Final =Float.parseFloat(Final_Flex_S) 
+	
+		//Strategy from the response
+		R2 = R.toString()
+    	   	index1 = R2.indexOf("Strategy value")
+		Strategyindex = index1 + 16
+		StrategyVal = R2.substring(Strategyindex)
+		index3 = StrategyVal. indexOf(" />")
+		R_FinalStrategyVal = StrategyVal.substring(0,index3-1)
+		Integer R_R_FinalStrategyVal = Integer.parseInt(R_FinalStrategyVal)
+		Integer Final_Strategy_Final =Integer.parseInt(context.expand( '${Flex_Adj_Factors#STRATEGY_BAND}' )) 
+         log.info(Final_Strategy_Final)
+         if (Final_Flex_Final == R_R_FinalFlexVal &amp;&amp; Final_Strategy_Final ==R_R_FinalStrategyVal)
+		{	
+			log.info (id+product+"|Flex match|"+Final_Flex_Final +"|"+ R_R_FinalFlexVal+"|"+ Final_Strategy_Final+"|"+ R_R_FinalStrategyVal)
+			def row1 = id+"|"+product+"|Flex Value matched|"+Final_Flex_Final +"|"+ R_R_FinalFlexVal+"|"+ Final_Strategy_Final+"|"+ R_R_FinalStrategyVal
+			func_write ( row1,"File")
+		}
+		else
+		{
+		
+			log.info (id+product+"|Flex Doesn't match|"+Final_Flex_Final +"|"+ R_R_FinalFlexVal+"|"+ Final_Strategy_Final+"|"+ R_R_FinalStrategyVal)
+			def row2 = id+"|"+product+"|Flex Value not  matched|"+Final_Flex_Final +"|"+ R_R_FinalFlexVal+"|"+ Final_Strategy_Final+"|"+ R_R_FinalStrategyVal
+			func_write ( row2,"FileFailed")
+		}
+}   
+def func_write (line,filename)
+{
+		int totalOfValuesChecked = Integer.parseInt(context.expand( '${#TestCase#TotalOfValuesChecked}' ))
+		int numOfValuesFailed = Integer.parseInt(context.expand( '${#TestCase#NumOfValuesFailed}' ))
+		BufferedWriter bw1 = new BufferedWriter (new FileWriter (context.expand('${#TestCase#'+filename+'}'), true));
+		bw1.write (line);
+		bw1.newLine();
+		bw1.flush();
+		bw1.close();
+		totalOfValuesChecked++
+		testRunner.testCase.setPropertyValue( 'totalOfValuesChecked',  new Integer(totalOfValuesChecked).toString())
+		 if (filename == ('FileFailed'))
+		{
+		numOfValuesFailed++
+		testRunner.testCase.setPropertyValue( 'numOfValuesFailed',  new Integer(numOfValuesFailed).toString())
+		}
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="2e34f161-999d-49b0-9541-791361491787">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>Flex_Adj_Factors</dataSourceStep>
+      <targetStep>Product_Code</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="LogResults" id="a7f8b8d6-6c2f-4a55-88d0-336be119e2db">
+    <con:settings/>
+    <con:config>
+      <script>log.info("    ********************************")
+log.info("    ************RESULTS*************")
+log.info("    Number of Iterations: " + context.expand( '${#TestCase#NumOfIterations}' ))
+log.info("    Number of Values Checked: " + context.expand( '${#TestCase#TotalOfValuesChecked}' ))
+log.info("    Number of Failed values: " + context.expand( '${#TestCase#NumOfValuesFailed}' ))
+log.info("    ********************************")
+log.info("    ********************************")
+
+NumberofIterations = ("    Number of Iterations: " + context.expand( '${#TestCase#NumOfIterations}'));
+NumberofValuesChecked = ("    Number of Values Checked: " + context.expand( '${#TestCase#TotalOfValuesChecked}' ));
+NumberofFailedValues = ("    Number of Failed values: " + context.expand( '${#TestCase#NumOfValuesFailed}' ));
+
+	 BufferedWriter bw = new BufferedWriter (new FileWriter (context.expand('${#TestCase#File}'), true));
+		bw.write (NumberofIterations);
+		bw.newLine();
+		bw.write (NumberofValuesChecked);
+		bw.newLine();
+		bw.write (NumberofFailedValues);
+		bw.newLine();
+		bw.flush();
+		bw.close();</script>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>TotalOfValuesChecked</con:name>
+      <con:value>8500</con:value>
+    </con:property>
+    <con:property>
+      <con:name>NumOfValuesFailed</con:name>
+      <con:value>1</con:value>
+    </con:property>
+    <con:property>
+      <con:name>NumOfIterations</con:name>
+      <con:value>8500</con:value>
+    </con:property>
+    <con:property>
+      <con:name>RequestDateTime</con:name>
+      <con:value>2020-02-01T00:00:00</con:value>
+    </con:property>
+    <con:property>
+      <con:name>PriceDate</con:name>
+      <con:value>2017-09-01</con:value>
+    </con:property>
+    <con:property>
+      <con:name>EffectiveDate</con:name>
+      <con:value>2017-09-01</con:value>
+    </con:property>
+    <con:property>
+      <con:name>File</con:name>
+      <con:value>N:/Systems_development/RIO/Road Renewals/Soap UI/Test Results/TIA_Flex_6A/FlexResults20200124T160421.txt</con:value>
+    </con:property>
+    <con:property>
+      <con:name>FileFailed</con:name>
+      <con:value>N:/Systems_development/RIO/Road Renewals/Soap UI/Test Results/TIA_Flex_6A/FlexResultsFailed20200124T160421.txt</con:value>
+    </con:property>
+    <con:property>
+      <con:name>ProductList_XML</con:name>
+      <con:value>&lt;ProductCodeList>&lt;ProductCode>&lt;RRERD1_CPD1_P2_ProductCode1 value=PRD_UK_002/>&lt;/ProductCode>&lt;/ProductCodeList></con:value>
+    </con:property>
+    <con:property>
+      <con:name>ProductList</con:name>
+      <con:value>Roadside</con:value>
+    </con:property>
+    <con:property>
+      <con:name>Cover</con:name>
+      <con:value>&lt;RRERD1_CoveredPersons2 value=1/></con:value>
+    </con:property>
+    <con:property>
+      <con:name>PolicyStartDateTime</con:name>
+      <con:value>2017-09-06T00:00:00</con:value>
+    </con:property>
+    <con:property>
+      <con:name>Tenure_Type</con:name>
+      <con:value><![CDATA[<prod:TenureValue>1</prod:TenureValue><prod:PaymentValue>CMM</prod:PaymentValue><prod:ChannelValue>1</prod:ChannelValue><prod:PackageValue>1</prod:PackageValue><prod:MemberValue>P1</prod:MemberValue><prod:MRTValue>N</prod:MRTValue><prod:MRT_3yrsValue>NNN</prod:MRT_3yrsValue><prod:MTA_Value>N</prod:MTA_Value><prod:FSS_Value>1</prod:FSS_Value><prod:Callout1_Value>0</prod:Callout1_Value><prod:Callout2_Value>0</prod:Callout2_Value><prod:Vehicle_Value>0</prod:Vehicle_Value><prod:Comp_Value>N</prod:Comp_Value><prod:BRC_Value>N</prod:BRC_Value><prod:Date_Of_Birth>9/6/00</prod:Date_Of_Birth>]]></con:value>
+    </con:property>
+    <con:property>
+      <con:name>AdjFact_XML</con:name>
+      <con:value><![CDATA[<EXPERIAN_FSS_SCORE value>1/><MTA_PRODUCT_CHANGE value>N/><NO_CALLOUTS_1_YR value>0/><NO_CALLOUTS_2_YR value>0/><RETENTION_AGENT_DISC_1_YR value>Y/><RETENTION_AGENT_DISC_2_YR value>Y/><RETENTION_AGENT_DISC_3_YR value>Y/><RRERD1_CPD1_PL1_P1_DateOfBirth1 value>9/7/00/><RRERD1_CPD1_RecordedPaymentType1 value>CMM/><RRERD1_MembershipTenure1 value>1/><RRERD1_PolicyStartDateTime1value>9/7/17/><RRERD1_SourceGroup1 value>1/>]]></con:value>
+    </con:property>
+    <con:property>
+      <con:name>CoverValue</con:name>
+      <con:value>&lt;prod:RRERD1_CoveredPersons1 value>4&lt;/prod:RRERD1_CoveredPersons1 value>&lt;/ret:CoverValue>&lt;/ret:CoverValue></con:value>
+    </con:property>
+    <con:property>
+      <con:name>CoverValue_XML</con:name>
+      <con:value>&lt;prod:RRERD1_CoveredPersons1 value>4&lt;/prod:RRERD1_CoveredPersons1 value>&lt;/ret:CoverValue>&lt;/ret:CoverValue></con:value>
+    </con:property>
+    <con:property>
+      <con:name>Product</con:name>
+      <con:value>&lt;RRERD1_CPD1_P1_ProductCode1 value=PRD_UK_001/></con:value>
+    </con:property>
+    <con:property>
+      <con:name>Product_XML</con:name>
+      <con:value>&lt;RRERD1_CPD1_P1_ProductCode1 value=PRD_UK_001/></con:value>
+    </con:property>
+    <con:property>
+      <con:name>Cover_XML</con:name>
+      <con:value>&lt;RRERD1_CoveredPersons2 value=1/></con:value>
+    </con:property>
+    <con:property>
+      <con:name>productType</con:name>
+      <con:value>Roadside</con:value>
+    </con:property>
+    <con:property>
+      <con:name>productType1</con:name>
+      <con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    </con:property>
+    <con:property>
+      <con:name>Cover1</con:name>
+      <con:value>0</con:value>
+    </con:property>
+    <con:property>
+      <con:name>RET_AGENT_DISC_1_YR</con:name>
+      <con:value>FALSE</con:value>
+    </con:property>
+    <con:property>
+      <con:name>RET_AGENT_DISC_2_YR</con:name>
+      <con:value>FALSE</con:value>
+    </con:property>
+    <con:property>
+      <con:name>RET_AGENT_DISC_3_YR</con:name>
+      <con:value>FALSE</con:value>
+    </con:property>
+    <con:property>
+      <con:name>db1</con:name>
+      <con:value>9/6/00T00:00:00</con:value>
+    </con:property>
+    <con:property>
+      <con:name>pd1</con:name>
+      <con:value>9/6/17T00:00:00</con:value>
+    </con:property>
+    <con:property>
+      <con:name>DateofBirth1</con:name>
+      <con:value>2001-01-05T00:00:00</con:value>
+    </con:property>
+    <con:property>
+      <con:name>policyStDate1</con:name>
+      <con:value>2020-02-05T00:00:00</con:value>
+    </con:property>
+    <con:property>
+      <con:name>Agd1</con:name>
+      <con:value>FALSE</con:value>
+    </con:property>
+    <con:property>
+      <con:name>Agd2</con:name>
+      <con:value>FALSE</con:value>
+    </con:property>
+    <con:property>
+      <con:name>Agd3</con:name>
+      <con:value>FALSE</con:value>
+    </con:property>
+    <con:property>
+      <con:name>flexflag</con:name>
+      <con:value>true</con:value>
+    </con:property>
+    <con:property>
+      <con:name>R2</con:name>
+      <con:value>>&lt;FlexFactor value="1" /></con:value>
+    </con:property>
+    <con:property>
+      <con:name>productType2</con:name>
+      <con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">PRD_UK_0002</con:value>
+    </con:property>
+    <con:property>
+      <con:name>productType3</con:name>
+      <con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">PRD_UK_0003</con:value>
+    </con:property>
+    <con:property>
+      <con:name>productType4</con:name>
+      <con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    </con:property>
+    <con:property>
+      <con:name>productType5</con:name>
+      <con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">PRD_UK_0005</con:value>
+    </con:property>
+    <con:property>
+      <con:name>productType7</con:name>
+      <con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    </con:property>
+    <con:property>
+      <con:name>pAYMENT_TYPE</con:name>
+      <con:value>RAP</con:value>
+    </con:property>
+    <con:property>
+      <con:name>payment_means1</con:name>
+      <con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">CC</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>c74c1e69-0cf5-4b70-b32c-989bda45ba88</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>8a056a8b-7526-4431-b9a7-42261cb99aac</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>c33b37aa-adb4-4a0f-8be8-aacea1780e43</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>0b136665-5c6b-4d2d-bda9-979e13a09669</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>9c312a77-d6b1-4986-a79d-e606176bf2a1</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>4753153a-6228-4260-84bb-53894cc390f3</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>30079225-a8eb-4531-be70-b5be6e2d6867</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

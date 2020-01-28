@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="114af756-59c8-4a7f-98d8-9c8e6a945093" isOneWay="false" action="http://towerswatson.com/rto/dpo/services/2010/01/DpoServiceContract/GetPof" name="GetPof" bindingOperationName="GetPof" type="Request-Response" outputName="PofResponse" inputName="PofRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="114af756-59c8-4a7f-98d8-9c8e6a945093fileName">GetPof</con:setting>
+  </con:settings>
+  <con:call id="6043ee1c-b076-4cf2-9752-2722df750fc6" name="Flex Request" useWsAddressing="true">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>http://aa-ap891v:5023/DpoService.svc</con:endpoint>
+    <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ns="http://towerswatson.com/rto/dpo/services/2010/01" xmlns:ns1="http://towerswatson.com/rto/smf/types/2010/01">
+   <soap:Header/>
+   <soap:Body>
+      <ns:PofRequest>
+         <!--Optional:-->
+         <ns:PofrCollection>
+            <!--Zero or more repetitions:-->
+            <ns1:PofrInformationDataContract>
+               <ns1:Pofr><![CDATA[<?xml version="1.0"?>
+<root>
+	<Quote>
+	     <RRERD1_CPD1_P1_ProductCode1 value="PRD_UK_0001"/>
+	     <RRERD1_CPD1_P2_ProductCode1 value=""/>
+	     <RRERD1_CPD1_P3_ProductCode1 value=""/>
+	     <RRERD1_CPD1_P4_ProductCode1 value=""/>
+	     <RRERD1_CPD1_P5_ProductCode1 value=""/>
+	     <RRERD1_CPD1_P6_ProductCode1 value=""/>
+	     <RRERD1_CPD1_P7_ProductCode1 value=""/>
+	     <RRERD1_CoveredPersons1 value="1"/>
+	     <RRERD1_CPD1_PL1_P1_DateOfBirth1 value="1961-02-05T00:00:00"/>
+		<RRERD1_PolicyStartDateTime1 value="2020-02-05T00:00:00"/>
+		<EXPERIAN_FSS_SCORE value="22"/>
+	     <MTA_PRODUCT_CHANGE value="N"/>
+	     <NO_CALLOUTS_1_YR value="0"/>
+		<NO_CALLOUTS_2_YR value="9"/>
+		<RETENTION_AGENT_DISC_1_YR value="TRUE"/>
+          <RETENTION_AGENT_DISC_2_YR value="TRUE"/>
+          <RETENTION_AGENT_DISC_3_YR value="TRUE"/>
+		<RRERD1_CPD1_RecordedPaymentType1 value="CMM"/>
+		<RRERD1_MembershipTenure1 value="3"/>
+		<RRERD1_SourceGroup1 value="20"/>
+		<RRERD1_RandomNumber1 value="200"/>
+		<RRERD1_CPD1_PartialFreeMembershipFlag1 value="true"/>
+		<RRERD1_MembershipNumber1 value="6356010000005367"/>
+		<RRERD1_CPD1_RecordedPaymentMeans1 value=""/>
+		<RRERD1_InScopeFlexFlag1 value="true"/>
+		<RRERD1_SourceCode1 value="WJ001"/>	
+		<RRERD1_Postcode1 value="RG21 7UG"/>
+		<InvitedComplimentaryProducts value=""/>
+		<FreeJuniorAssociateCount value="0"/>
+		<BRC_CLAIMS_1_YR value="0"/>
+		<BRC_CLAIMS_2_YR value="0"/>
+		<BRC_CLAIMS_3_YR value="0"/>
+		<TOTAL_INVITED_PREMIUM_1_YR value="0" />
+		<TOTAL_INVITED_PREMIUM_2_YR value="0" />
+		<TOTAL_INVITED_PREMIUM_3_YR value="0" />
+		<TOTAL_RENEWAL_PREMIUM_1_YR value="0" />
+		<TOTAL_RENEWAL_PREMIUM_2_YR value="0" />
+		<TOTAL_RENEWAL_PREMIUM_3_YR value="0" />
+		<NO_CALLOUTS_3_YR value="0"/>
+		<INSURANCE_HISTORY value="N"/>
+		<MOTOR_HISTORY value="N"/>
+		<HOME_HISTORY value="N"/>
+		<LIVE_PRODUCT_COUNT value="0"/>
+		<MEMBERSHIP_HELD_5_YR value="0"/>
+		<UNSUBSCRIBED_EMAIL_1_YR value="TRUE"/>
+	</Quote>
+</root>]]]]>><![CDATA[</ns1:Pofr>
+            </ns1:PofrInformationDataContract>
+         </ns:PofrCollection>
+         <!--Optional:-->
+      </ns:PofRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:jmsPropertyConfig/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://towerswatson.com/rto/dpo/services/2010/01/DpoServiceContract/GetPof"/>
+    <con:wsrmConfig version="1.2"/>
+  </con:call>
+  <con:call id="2dcedc8a-a07c-460b-b31a-62b0fb8092bb" name="Request 2" useWsAddressing="true">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>http://aa-ap882v:5002/DpoService.svc</con:endpoint>
+    <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ns="http://towerswatson.com/rto/dpo/services/2010/01" xmlns:ns1="http://towerswatson.com/rto/smf/types/2010/01">
+   <soap:Header/>
+   <soap:Body>
+      <ns:PofRequest>
+         <!--Optional:-->
+         <ns:PofrCollection>
+            <!--Zero or more repetitions:-->
+            <ns1:PofrInformationDataContract>
+               <ns1:Pofr><![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<root>
+<Quote>
+<EXPERIAN_FSS_SCORE value="1" />
+<HOME_HISTORY value="N" />
+<INSURANCE_HISTORY value="N" />
+<LIVE_PRODUCT_COUNT value="5" />
+<MEMBERSHIP_HELD_5_YR value="5" />
+<MOTOR_HISTORY value="N" />
+<MTA_PRODUCT_CHANGE value="N" />
+<NO_CALLOUTS_1_YR value="0" />
+<NO_CALLOUTS_2_YR value="0" />
+<NO_CALLOUTS_3_YR value="2" />
+<PRICE_TEST_1_YR value="5" />
+<PRICE_TEST_2_YR value="9" />
+<PRICE_TEST_3_YR value="4" />
+<RETENTION_AGENT_DISC_1_YR value="False" />
+<RETENTION_AGENT_DISC_2_YR value="False" />
+<RETENTION_AGENT_DISC_3_YR value="False" />
+<RRERD1_CPD1_P10_ProductCode1 value="" />
+<RRERD1_CPD1_P1_ProductCode1 value="" />
+<RRERD1_CPD1_P2_ProductCode1 value="PRD_UK_002" />
+<RRERD1_CPD1_P3_ProductCode1 value="" />
+<RRERD1_CPD1_P4_ProductCode1 value="" />
+<RRERD1_CPD1_P5_ProductCode1 value="" />
+<RRERD1_CPD1_P6_ProductCode1 value="" />
+<RRERD1_CPD1_P7_ProductCode1 value="" />
+<RRERD1_CPD1_P8_ProductCode1 value="" />
+<RRERD1_CPD1_P9_ProductCode1 value="" />
+<RRERD1_CPD1_PL1_P1_DateOfBirth1 value="1965-09-06T00:00:00" />
+<RRERD1_CPD1_PL1_P1_MainPolicyHolderFlag1 value="True" />
+<RRERD1_CPD1_PL1_P1_PartyId1 value="1234" />
+<RRERD1_CPD1_PartialFreeMembershipFlag1 value="True" />
+<RRERD1_CPD1_RecordedPaymentMeans1 value="CC" />
+<RRERD1_CPD1_RecordedPaymentType1 value="CMP" />
+<RRERD1_CPD1_VDL1_VD1_ABIBrokerNetCode1 value="true23" />
+<RRERD1_CPD1_VDL1_VD1_DP1_Code1 value="ABCC" />
+<RRERD1_CPD1_VDL1_VD1_DP1_Description1 value="ABCC" />
+<RRERD1_CPD1_VDL1_VD1_EngineCapacity1 value="2" />
+<RRERD1_CPD1_VDL1_VD1_F1_Code1 value="ABCC" />
+<RRERD1_CPD1_VDL1_VD1_F1_Description1 value="ABCC" />
+<RRERD1_CPD1_VDL1_VD1_VehicleAge1 value="17" />
+<RRERD1_CPD1_VDL1_VD1_YearOfManufacture1 value="2000" />
+<RRERD1_CPD1_VDL1_VD2_ABIBrokerNetCode1 value="true23" />
+<RRERD1_CPD1_VDL1_VD2_DP1_Code1 value="ABCC" />
+<RRERD1_CPD1_VDL1_VD2_DP1_Description1 value="ABCC" />
+<RRERD1_CPD1_VDL1_VD2_EngineCapacity1 value="2" />
+<RRERD1_CPD1_VDL1_VD2_F1_Code1 value="ABCC" />
+<RRERD1_CPD1_VDL1_VD2_F1_Description1 value="ABCC" />
+<RRERD1_CPD1_VDL1_VD2_VehicleAge1 value="17" />
+<RRERD1_CPD1_VDL1_VD2_YearOfManufacture1 value="2000" />
+<RRERD1_CPD1_VDL1_VD3_ABIBrokerNetCode1 value="" />
+<RRERD1_CPD1_VDL1_VD3_DP1_Code1 value="" />
+<RRERD1_CPD1_VDL1_VD3_DP1_Description1 value="" />
+<RRERD1_CPD1_VDL1_VD3_EngineCapacity1 value="" />
+<RRERD1_CPD1_VDL1_VD3_F1_Code1 value="" />
+<RRERD1_CPD1_VDL1_VD3_F1_Description1 value="" />
+<RRERD1_CPD1_VDL1_VD3_VehicleAge1 error="ROW_VALUE_NO_VALUE" />
+<RRERD1_CPD1_VDL1_VD3_YearOfManufacture1 error="ROW_VALUE_NO_VALUE" />
+<RRERD1_CPD1_VDL1_VD4_ABIBrokerNetCode1 value="" />
+<RRERD1_CPD1_VDL1_VD4_DP1_Code1 value="" />
+<RRERD1_CPD1_VDL1_VD4_DP1_Description1 value="" />
+<RRERD1_CPD1_VDL1_VD4_EngineCapacity1 value="" />
+<RRERD1_CPD1_VDL1_VD4_F1_Code1 value="" />
+<RRERD1_CPD1_VDL1_VD4_F1_Description1 value="" />
+<RRERD1_CPD1_VDL1_VD4_VehicleAge1 error="ROW_VALUE_NO_VALUE" />
+<RRERD1_CPD1_VDL1_VD4_YearOfManufacture1 error="ROW_VALUE_NO_VALUE" />
+<RRERD1_CoveredPersons1 value="0" />
+<RRERD1_InScopeFlexFlag1 value="True" />
+<RRERD1_MembershipNumber1 value="4545" />
+<RRERD1_MembershipTenure1 value="1" />
+<RRERD1_OptInOfferFlag1 value="True" />
+<RRERD1_PolicyStartDateTime1 value="2001-09-06T00:00:00" />
+<RRERD1_Postcode1 value="IM11JA" />
+<RRERD1_RandomNumber1 value="200" />
+<RRERD1_SourceCode1 value="AACFM" />
+<RRERD1_SourceGroup1 value="1" />
+<TOTAL_INVITED_PREMIUM_1_YR value="307.52" />
+<TOTAL_INVITED_PREMIUM_2_YR value="571.64" />
+<TOTAL_INVITED_PREMIUM_3_YR value="136.4" />
+<TOTAL_RENEWAL_PREMIUM_1_YR value="347.2" />
+<TOTAL_RENEWAL_PREMIUM_2_YR value="597.68" />
+<TOTAL_RENEWAL_PREMIUM_3_YR value="314.96" />
+<UNSUBSCRIBED_EMAIL_1_YR value="True" />
+</Quote>
+</root>]]]]>><![CDATA[</ns1:Pofr>
+            </ns1:PofrInformationDataContract>
+         </ns:PofrCollection>
+         <!--Optional:-->
+      </ns:PofRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://towerswatson.com/rto/dpo/services/2010/01/DpoServiceContract/GetPof"/>
+    <con:wsrmConfig version="1.2"/>
+  </con:call>
+  <con:call id="6378f5ad-8027-44e4-92d0-1d0edd707069" name="Request 3" useWsAddressing="true">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>http://aa-ap882v:5002/DpoService.svc</con:endpoint>
+    <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ns="http://towerswatson.com/rto/dpo/services/2010/01" xmlns:ns1="http://towerswatson.com/rto/smf/types/2010/01">
+   <soap:Header/>
+   <soap:Body>
+      <ns:PofRequest>
+         <!--Optional:-->
+         <ns:PofrCollection>
+            <!--Zero or more repetitions:-->
+            <ns1:PofrInformationDataContract>
+               <ns1:Pofr><![CDATA[<?xml version="1.0"?>
+<root>
+	<Quote>
+	     <RRERD1_CPD1_P1_ProductCode1 value="${#TestCase#productType1}"/>
+	     <RRERD1_CoveredPersons1 value="${#TestCase#Cover1}"/>
+	     <RRERD1_CPD1_PL1_P1_DateOfBirth1 value="${#TestCase#DateofBirth1}"/>
+		<RRERD1_PolicyStartDateTime1 value="${#TestCase#policyStDate1}"/>
+		<EXPERIAN_FSS_SCORE value="${Flex_Adj_Factors#FSS_VAL}"/>
+	     <MTA_PRODUCT_CHANGE value="${Flex_Adj_Factors#MTA_VAL}"/>
+	     <NO_CALLOUTS_1_YR value="${Flex_Adj_Factors#CALL1_VAL}"/>
+		<NO_CALLOUTS_2_YR value="${Flex_Adj_Factors#CALL2_VAL}"/>
+		<RETENTION_AGENT_DISC_1_YR value="${#TestCase#Agd1}"/>
+          <RETENTION_AGENT_DISC_2_YR value="${#TestCase#Agd2}"/>
+          <RETENTION_AGENT_DISC_3_YR value="${#TestCase#Agd3}"/>
+		<RRERD1_CPD1_RecordedPaymentType1 value="${Flex_Adj_Factors#PAYMENT_TYPE}"/>
+		<RRERD1_MembershipTenure1 value="${Flex_Adj_Factors#TENURE_TYPE}"/>
+		<RRERD1_SourceGroup1 value="${Flex_Adj_Factors#CHANNEL_VAL}" />
+		<RRERD1_RandomNumber1 value="${Flex_Adj_Factors#RANDOM_NUMBER}"/>
+		<RRERD1_CPD1_PartialFreeMembershipFlag1 value="true"/>
+		<RRERD1_MembershipNumber1 value=""/>
+		<RRERD1_CPD1_RecordedPaymentMeans1 value="CC"/>
+		<RRERD1_InScopeFlexFlag1 value="${#TestCase#flexflag}"/>
+		<RRERD1_SourceCode1 value="INS04"/>	
+		<RRERD1_Postcode1 value="IM11JA"/>
+		<TOTAL_INVITED_PREMIUM_1_YR value="359.6"/>
+		<TOTAL_INVITED_PREMIUM_2_YR value="412.92"/>
+		<TOTAL_INVITED_PREMIUM_3_YR value="287.68"/>
+		<TOTAL_RENEWAL_PREMIUM_1_YR value="301.32"/>
+		<TOTAL_RENEWAL_PREMIUM_2_YR value="131.44"/>
+		<TOTAL_RENEWAL_PREMIUM_3_YR value="579.08"/>
+<CONTRACT_NUMBER value="6356011510024216"/>
+		<PRICE_TEST_1_YR value="8"/>
+		<PRICE_TEST_2_YR value="10"/>
+		<PRICE_TEST_3_YR value="8"/>
+		
+		<NO_CALLOUTS_3_YR value="2"/>
+		<BRC_CLAIMS_1_YR value="4"/>
+		<BRC_CLAIMS_2_YR value="3"/>
+		<BRC_CLAIMS_3_YR value="4"/>
+		<INSURANCE_HISTORY value="X"/>
+		<MOTOR_HISTORY value="E"/>
+		<HOME_HISTORY value="X"/>
+		<LIVE_PRODUCT_COUNT value="1"/>
+		<MEMBERSHIP_HELD_5_YR value="5"/>
+		<UNSUBSCRIBED_EMAIL_1_YR value="TRUE"/>
+	</Quote>
+</root>]]]]>><![CDATA[</ns1:Pofr>
+            </ns1:PofrInformationDataContract>
+         </ns:PofrCollection>
+         <!--Optional:-->
+      </ns:PofRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://towerswatson.com/rto/dpo/services/2010/01/DpoServiceContract/GetPof"/>
+    <con:wsrmConfig version="1.2"/>
+  </con:call>
+  <con:call id="cc6b270d-9d53-4da7-9979-20c9e90c815a" name="Copy of GetPof Request" useWsAddressing="true">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>http://aa-ap882v:5002/DpoService.svc</con:endpoint>
+    <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ns="http://towerswatson.com/rto/dpo/services/2010/01" xmlns:ns1="http://towerswatson.com/rto/smf/types/2010/01">
+   <soap:Header/>
+   <soap:Body>
+      <ns:PofRequest>
+         <!--Optional:-->
+         <ns:PofrCollection>
+            <!--Zero or more repetitions:-->
+            <ns1:PofrInformationDataContract>
+               <ns1:Pofr><![CDATA[<?xml version="1.0"?>
+<root>
+	<Quote>
+	     <RRERD1_CPD1_P1_ProductCode1 value="${#TestCase#productType1}"/>
+	     <RRERD1_CoveredPersons1 value="${#TestCase#Cover1}"/>
+	     <RRERD1_CPD1_PL1_P1_DateOfBirth1 value="${#TestCase#DateofBirth1}"/>
+		<RRERD1_PolicyStartDateTime1 value="${#TestCase#policyStDate1}"/>
+		<EXPERIAN_FSS_SCORE value="${Flex_Adj_Factors#FSS_VAL}"/>
+	     <MTA_PRODUCT_CHANGE value="${Flex_Adj_Factors#MTA_VAL}"/>
+	     <NO_CALLOUTS_1_YR value="${Flex_Adj_Factors#CALL1_VAL}"/>
+		<NO_CALLOUTS_2_YR value="${Flex_Adj_Factors#CALL2_VAL}"/>
+		<RETENTION_AGENT_DISC_1_YR value="${#TestCase#Agd1}"/>
+          <RETENTION_AGENT_DISC_2_YR value="${#TestCase#Agd2}"/>
+          <RETENTION_AGENT_DISC_3_YR value="${#TestCase#Agd3}"/>
+		<RRERD1_CPD1_RecordedPaymentType1 value="${Flex_Adj_Factors#PAYMENT_TYPE}"/>
+		<RRERD1_MembershipTenure1 value="${Flex_Adj_Factors#TENURE_TYPE}"/>
+		<RRERD1_SourceGroup1 value="${Flex_Adj_Factors#CHANNEL_VAL}" />
+		<RRERD1_RandomNumber1 value="${Flex_Adj_Factors#RANDOM_NUMBER}"/>
+		<RRERD1_CPD1_PartialFreeMembershipFlag1 value="true"/>
+		
+		<RRERD1_CPD1_RecordedPaymentMeans1 value="CC"/>
+		<RRERD1_InScopeFlexFlag1 value="${#TestCase#flexflag}"/>
+		<RRERD1_SourceCode1 value="INS04"/>	
+		<RRERD1_Postcode1 value="IM11JA"/>
+		<BRC_CLAIMS_1_YR value="4"/>
+		<BRC_CLAIMS_2_YR value="3"/>
+		<BRC_CLAIMS_3_YR value="4"/>
+		<TOTAL_INVITED_PREMIUM_1_YR value="307.52" />
+		<TOTAL_INVITED_PREMIUM_2_YR value="571.64" />
+		<TOTAL_INVITED_PREMIUM_3_YR value="136.4" />
+		<TOTAL_RENEWAL_PREMIUM_1_YR value="347.2" />
+		<TOTAL_RENEWAL_PREMIUM_2_YR value="597.68" />
+		<TOTAL_RENEWAL_PREMIUM_3_YR value="314.96" />
+		<NO_CALLOUTS_3_YR value="2"/>
+		<INSURANCE_HISTORY value="X"/>
+		<MOTOR_HISTORY value="E"/>
+		<HOME_HISTORY value="X"/>
+		<LIVE_PRODUCT_COUNT value="1"/>
+		<MEMBERSHIP_HELD_5_YR value="5"/>
+		<UNSUBSCRIBED_EMAIL_1_YR value="TRUE"/>
+	</Quote>
+</root>]]]]>><![CDATA[</ns1:Pofr>
+            </ns1:PofrInformationDataContract>
+         </ns:PofrCollection>
+         <!--Optional:-->
+      </ns:PofRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://towerswatson.com/rto/dpo/services/2010/01/DpoServiceContract/GetPof"/>
+    <con:wsrmConfig version="1.2"/>
+  </con:call>
+  <con:call id="58aa7f18-0875-406e-b10d-bf406330499d" name="Flex6_Request" useWsAddressing="true">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>http://aa-ap891v:5021/DpoService.svc</con:endpoint>
+    <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ns="http://towerswatson.com/rto/dpo/services/2010/01" xmlns:ns1="http://towerswatson.com/rto/smf/types/2010/01">
+   <soap:Header/>
+   <soap:Body>
+      <ns:PofRequest>
+         <!--Optional:-->
+         <ns:PofrCollection>
+            <!--Zero or more repetitions:-->
+            <ns1:PofrInformationDataContract>
+               <ns1:Pofr><![CDATA[<?xml version="1.0"?>
+<root>
+	<Quote>
+	     <RRERD1_CPD1_P1_ProductCode1 value=""/>
+	     <RRERD1_CPD1_P2_ProductCode1 value="PRD_UK_0002"/>
+	     <RRERD1_CPD1_P3_ProductCode1 value=""/>
+	     <RRERD1_CPD1_P4_ProductCode1 value=""/>
+	     <RRERD1_CPD1_P5_ProductCode1 value=""/>
+	     <RRERD1_CPD1_P6_ProductCode1 value=""/>
+	     <RRERD1_CPD1_P7_ProductCode1 value="PRD_UK_0018"/>
+	     <RRERD1_CoveredPersons1 value="0"/>
+	     <RRERD1_CPD1_PL1_P1_DateOfBirth1 value="2002-03-05T00:00:00"/>
+		<RRERD1_PolicyStartDateTime1 value="2020-02-05T00:00:00"/>
+		<EXPERIAN_FSS_SCORE value="11"/>
+	     <MTA_PRODUCT_CHANGE value="N"/>
+	     <NO_CALLOUTS_1_YR value="1"/>
+		<NO_CALLOUTS_2_YR value="0"/>
+		<RETENTION_AGENT_DISC_1_YR value="FALSE"/>
+          <RETENTION_AGENT_DISC_2_YR value="FALSE"/>
+          <RETENTION_AGENT_DISC_3_YR value="FALSE"/>
+		<RRERD1_CPD1_RecordedPaymentType1 value="SAP"/>
+		<RRERD1_MembershipTenure1 value="1"/>
+		<RRERD1_SourceGroup1 value="19"/>
+		<RRERD1_RandomNumber1 value="605"/>
+		<RRERD1_CPD1_PartialFreeMembershipFlag1 value="true"/>
+		<RRERD1_MembershipNumber1 value="6356010000005367"/>
+		<RRERD1_CPD1_RecordedPaymentMeans1 value=""/>
+		<RRERD1_InScopeFlexFlag1 value="true"/>
+		<RRERD1_SourceCode1 value="SR001"/>	
+		<RRERD1_Postcode1 value="RG21 7UG"/>
+		<RRERD1_CPD1_VDL1_VD1_VehicleAge1 value="6"/>
+		<InvitedComplimentaryProducts value=""/>
+		<FreeJuniorAssociateCount value="0"/>
+		<BRC_CLAIMS_1_YR value="4"/>
+		<BRC_CLAIMS_2_YR value="3"/>
+		<BRC_CLAIMS_3_YR value="4"/>
+		<TOTAL_INVITED_PREMIUM_1_YR value="307.52" />
+		<TOTAL_INVITED_PREMIUM_2_YR value="571.64" />
+		<TOTAL_INVITED_PREMIUM_3_YR value="136.4" />
+		<TOTAL_RENEWAL_PREMIUM_1_YR value="347.2" />
+		<TOTAL_RENEWAL_PREMIUM_2_YR value="597.68" />
+		<TOTAL_RENEWAL_PREMIUM_3_YR value="314.96" />
+		<NO_CALLOUTS_3_YR value="2"/>
+		<INSURANCE_HISTORY value="N"/>
+		<MOTOR_HISTORY value="N"/>
+		<HOME_HISTORY value="N"/>
+		<LIVE_PRODUCT_COUNT value="1"/>
+		<MEMBERSHIP_HELD_5_YR value="5"/>
+		<UNSUBSCRIBED_EMAIL_1_YR value="TRUE"/>
+	</Quote>
+</root>]]]]>><![CDATA[</ns1:Pofr>
+            </ns1:PofrInformationDataContract>
+         </ns:PofrCollection>
+         <!--Optional:-->
+      </ns:PofRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://towerswatson.com/rto/dpo/services/2010/01/DpoServiceContract/GetPof"/>
+    <con:wsrmConfig version="1.2"/>
+  </con:call>
+  <con:call id="19c21183-c044-4668-a655-4bd2a0598800" name="Flex7_Request" useWsAddressing="true">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>http://aa-ap891v:5023/DpoService.svc</con:endpoint>
+    <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ns="http://towerswatson.com/rto/dpo/services/2010/01" xmlns:ns1="http://towerswatson.com/rto/smf/types/2010/01">
+   <soap:Header/>
+   <soap:Body>
+      <ns:PofRequest>
+         <!--Optional:-->
+         <ns:PofrCollection>
+            <!--Zero or more repetitions:-->
+            <ns1:PofrInformationDataContract>
+               <ns1:Pofr><![CDATA[<?xml version="1.0"?>
+<root>
+	<Quote>
+	     <RRERD1_CPD1_P1_ProductCode1 value="PRD_UK_0001"/>
+	     <RRERD1_CPD1_P2_ProductCode1 value=""/>
+	     <RRERD1_CPD1_P3_ProductCode1 value=""/>
+	     <RRERD1_CPD1_P4_ProductCode1 value=""/>
+	     <RRERD1_CPD1_P5_ProductCode1 value="PRD_UK_0005"/>
+	     <RRERD1_CPD1_P6_ProductCode1 value=""/>
+	     <RRERD1_CPD1_P7_ProductCode1 value=""/>
+	     <RRERD1_CoveredPersons1 value="3"/>
+	     <RRERD1_CPD1_PL1_P1_DateOfBirth1 value="1949-03-05T00:00:00"/>
+		<RRERD1_PolicyStartDateTime1 value="2020-02-05T00:00:00"/>
+		<EXPERIAN_FSS_SCORE value="38"/>
+	     <MTA_PRODUCT_CHANGE value="N"/>
+	     <NO_CALLOUTS_1_YR value="6"/>
+		<NO_CALLOUTS_2_YR value="8"/>
+		<RETENTION_AGENT_DISC_1_YR value="FALSE"/>
+          <RETENTION_AGENT_DISC_2_YR value="FALSE"/>
+          <RETENTION_AGENT_DISC_3_YR value="FALSE"/>
+		<RRERD1_CPD1_RecordedPaymentType1 value="RAP"/>
+		<RRERD1_MembershipTenure1 value="8"/>
+		<RRERD1_SourceGroup1 value="6"/>
+		<RRERD1_RandomNumber1 value="982"/>
+		<RRERD1_CPD1_PartialFreeMembershipFlag1 value="true"/>
+		<RRERD1_MembershipNumber1 value="6356010000005367"/>
+		<RRERD1_CPD1_RecordedPaymentMeans1 value="CC"/>
+		<RRERD1_InScopeFlexFlag1 value="true"/>
+		<RRERD1_SourceCode1 value="DS001"/>	
+		<RRERD1_Postcode1 value="RG21 7UG"/>
+		<InvitedComplimentaryProducts value=""/>
+		<FreeJuniorAssociateCount value="0"/>
+		<BRC_CLAIMS_1_YR value="4"/>
+		<BRC_CLAIMS_2_YR value="3"/>
+		<BRC_CLAIMS_3_YR value="4"/>
+		<TOTAL_INVITED_PREMIUM_1_YR value="307.52" />
+		<TOTAL_INVITED_PREMIUM_2_YR value="571.64" />
+		<TOTAL_INVITED_PREMIUM_3_YR value="136.4" />
+		<TOTAL_RENEWAL_PREMIUM_1_YR value="347.2" />
+		<TOTAL_RENEWAL_PREMIUM_2_YR value="597.68" />
+		<TOTAL_RENEWAL_PREMIUM_3_YR value="314.96" />
+		<NO_CALLOUTS_3_YR value="2"/>
+		<INSURANCE_HISTORY value="N"/>
+		<MOTOR_HISTORY value="N"/>
+		<HOME_HISTORY value="N"/>
+		<LIVE_PRODUCT_COUNT value="1"/>
+		<MEMBERSHIP_HELD_5_YR value="5"/>
+		<UNSUBSCRIBED_EMAIL_1_YR value="TRUE"/>
+	</Quote>
+</root>]]]]>><![CDATA[</ns1:Pofr>
+            </ns1:PofrInformationDataContract>
+         </ns:PofrCollection>
+         <!--Optional:-->
+      </ns:PofRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://towerswatson.com/rto/dpo/services/2010/01/DpoServiceContract/GetPof"/>
+    <con:wsrmConfig version="1.2"/>
+  </con:call>
+</con:operation>

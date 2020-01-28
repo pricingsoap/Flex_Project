@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="11ffb065-b1ff-4df5-97b4-14319b9ba9db" name="Flex_Risk_7" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="4a46d6a4-e1ae-4b34-9d4d-719f8ff2d510fileName">Flex_Risk</con:setting>
+    <con:setting id="11ffb065-b1ff-4df5-97b4-14319b9ba9dbfileName">Flex_Risk_7</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>
